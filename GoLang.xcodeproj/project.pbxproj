@@ -1,0 +1,310 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		BF90652816FB4E1800DB640E /* QuickLook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90652716FB4E1800DB640E /* QuickLook.framework */; };
+		BF90652A16FB4E1800DB640E /* ApplicationServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90652916FB4E1800DB640E /* ApplicationServices.framework */; };
+		BF90652C16FB4E1800DB640E /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90652B16FB4E1800DB640E /* CoreServices.framework */; };
+		BF90652E16FB4E1800DB640E /* CoreFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90652D16FB4E1800DB640E /* CoreFoundation.framework */; };
+		BF90653416FB4E1800DB640E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = BF90653216FB4E1800DB640E /* InfoPlist.strings */; };
+		BF90653616FB4E1800DB640E /* GenerateThumbnailForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = BF90653516FB4E1800DB640E /* GenerateThumbnailForURL.c */; };
+		BF90653816FB4E1800DB640E /* GeneratePreviewForURL.c in Sources */ = {isa = PBXBuildFile; fileRef = BF90653716FB4E1800DB640E /* GeneratePreviewForURL.c */; };
+		BF90653A16FB4E1800DB640E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BF90653916FB4E1800DB640E /* main.c */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		BF90652416FB4E1800DB640E /* GoLang.qlgenerator */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GoLang.qlgenerator; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF90652716FB4E1800DB640E /* QuickLook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuickLook.framework; path = System/Library/Frameworks/QuickLook.framework; sourceTree = SDKROOT; };
+		BF90652916FB4E1800DB640E /* ApplicationServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ApplicationServices.framework; path = System/Library/Frameworks/ApplicationServices.framework; sourceTree = SDKROOT; };
+		BF90652B16FB4E1800DB640E /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
+		BF90652D16FB4E1800DB640E /* CoreFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreFoundation.framework; path = System/Library/Frameworks/CoreFoundation.framework; sourceTree = SDKROOT; };
+		BF90653116FB4E1800DB640E /* GoLang-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "GoLang-Info.plist"; sourceTree = "<group>"; };
+		BF90653316FB4E1800DB640E /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		BF90653516FB4E1800DB640E /* GenerateThumbnailForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GenerateThumbnailForURL.c; sourceTree = "<group>"; };
+		BF90653716FB4E1800DB640E /* GeneratePreviewForURL.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = GeneratePreviewForURL.c; sourceTree = "<group>"; };
+		BF90653916FB4E1800DB640E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		BF90653B16FB4E1800DB640E /* GoLang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoLang-Prefix.pch"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		BF90651F16FB4E1800DB640E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90652816FB4E1800DB640E /* QuickLook.framework in Frameworks */,
+				BF90652A16FB4E1800DB640E /* ApplicationServices.framework in Frameworks */,
+				BF90652C16FB4E1800DB640E /* CoreServices.framework in Frameworks */,
+				BF90652E16FB4E1800DB640E /* CoreFoundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		BF90651916FB4E1800DB640E = {
+			isa = PBXGroup;
+			children = (
+				BF90652F16FB4E1800DB640E /* GoLang */,
+				BF90652616FB4E1800DB640E /* Frameworks */,
+				BF90652516FB4E1800DB640E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		BF90652516FB4E1800DB640E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				BF90652416FB4E1800DB640E /* GoLang.qlgenerator */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BF90652616FB4E1800DB640E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF90652716FB4E1800DB640E /* QuickLook.framework */,
+				BF90652916FB4E1800DB640E /* ApplicationServices.framework */,
+				BF90652B16FB4E1800DB640E /* CoreServices.framework */,
+				BF90652D16FB4E1800DB640E /* CoreFoundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF90652F16FB4E1800DB640E /* GoLang */ = {
+			isa = PBXGroup;
+			children = (
+				BF90653516FB4E1800DB640E /* GenerateThumbnailForURL.c */,
+				BF90653716FB4E1800DB640E /* GeneratePreviewForURL.c */,
+				BF90653916FB4E1800DB640E /* main.c */,
+				BF90653016FB4E1800DB640E /* Supporting Files */,
+			);
+			path = GoLang;
+			sourceTree = "<group>";
+		};
+		BF90653016FB4E1800DB640E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				BF90653116FB4E1800DB640E /* GoLang-Info.plist */,
+				BF90653216FB4E1800DB640E /* InfoPlist.strings */,
+				BF90653B16FB4E1800DB640E /* GoLang-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		BF90652016FB4E1800DB640E /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		BF90652316FB4E1800DB640E /* GoLang */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF90653E16FB4E1800DB640E /* Build configuration list for PBXNativeTarget "GoLang" */;
+			buildPhases = (
+				BF90651E16FB4E1800DB640E /* Sources */,
+				BF90651F16FB4E1800DB640E /* Frameworks */,
+				BF90652016FB4E1800DB640E /* Headers */,
+				BF90652116FB4E1800DB640E /* Resources */,
+				BF90652216FB4E1800DB640E /* Rez */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GoLang;
+			productName = GoLang;
+			productReference = BF90652416FB4E1800DB640E /* GoLang.qlgenerator */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BF90651A16FB4E1800DB640E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0460;
+				ORGANIZATIONNAME = "Daniel Chauvin";
+			};
+			buildConfigurationList = BF90651D16FB4E1800DB640E /* Build configuration list for PBXProject "GoLang" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = BF90651916FB4E1800DB640E;
+			productRefGroup = BF90652516FB4E1800DB640E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				BF90652316FB4E1800DB640E /* GoLang */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		BF90652116FB4E1800DB640E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90653416FB4E1800DB640E /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXRezBuildPhase section */
+		BF90652216FB4E1800DB640E /* Rez */ = {
+			isa = PBXRezBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXRezBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		BF90651E16FB4E1800DB640E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF90653616FB4E1800DB640E /* GenerateThumbnailForURL.c in Sources */,
+				BF90653816FB4E1800DB640E /* GeneratePreviewForURL.c in Sources */,
+				BF90653A16FB4E1800DB640E /* main.c in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		BF90653216FB4E1800DB640E /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				BF90653316FB4E1800DB640E /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		BF90653C16FB4E1800DB640E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		BF90653D16FB4E1800DB640E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.8;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		BF90653F16FB4E1800DB640E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoLang/GoLang-Prefix.pch";
+				INFOPLIST_FILE = "GoLang/GoLang-Info.plist";
+				INSTALL_PATH = /Library/QuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Debug;
+		};
+		BF90654016FB4E1800DB640E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "GoLang/GoLang-Prefix.pch";
+				INFOPLIST_FILE = "GoLang/GoLang-Info.plist";
+				INSTALL_PATH = /Library/QuickLook;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = qlgenerator;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		BF90651D16FB4E1800DB640E /* Build configuration list for PBXProject "GoLang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF90653C16FB4E1800DB640E /* Debug */,
+				BF90653D16FB4E1800DB640E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		BF90653E16FB4E1800DB640E /* Build configuration list for PBXNativeTarget "GoLang" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF90653F16FB4E1800DB640E /* Debug */,
+				BF90654016FB4E1800DB640E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BF90651A16FB4E1800DB640E /* Project object */;
+}
