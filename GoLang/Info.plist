@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>QLGenerator</string>
+			<key>CFBundleTypeName</key>
+			<string>chauvd.GoLang</string>
+		</dict>
+	</array>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>Go Source</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.go</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>chauvd.GoLang</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>go</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>

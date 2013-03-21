@@ -2,6 +2,8 @@
 #include <CoreServices/CoreServices.h>
 #include <QuickLook/QuickLook.h>
 
+#include <Cocoa/Cocoa.h>
+
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options);
 void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview);
 
@@ -13,8 +15,22 @@ void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview);
 
 OSStatus GeneratePreviewForURL(void *thisInterface, QLPreviewRequestRef preview, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options)
 {
-    // To complete your generator please implement the function GeneratePreviewForURL in GeneratePreviewForURL.c
-    return noErr;
+  @autoreleasepool {
+    NSString *_content = [NSString stringWithContentsOfURL:(__bridge NSURL *)url encoding:NSUTF8StringEncoding error:nil];
+    
+    if (QLPreviewRequestIsCancelled(preview)) {
+      return noErr;
+    }
+    
+    if (_content != nil) {
+      QLPreviewRequestSetDataRepresentation(preview,(__bridge CFDataRef)[_content dataUsingEncoding:NSUTF8StringEncoding],kUTTypePlainText,NULL);
+    }
+    else {
+      NSLog(@"Could not get source from CFURLref!");
+    }
+  }
+  
+  return noErr;
 }
 
 void CancelPreviewGeneration(void *thisInterface, QLPreviewRequestRef preview)
