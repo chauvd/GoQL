@@ -71,15 +71,9 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
           NSFont *badgeFont = [NSFont boldSystemFontOfSize:badgeFontSize];
           NSColor *badgeColor = [NSColor colorWithCalibratedRed:0/255.f green:0/255.f blue:255/255.f alpha:0.8f];
           
-//          NSShadow *badgeShadow = [[NSShadow alloc] init];
-//          [badgeShadow setShadowOffset:NSMakeSize(0.f, 0.f)];
-//          [badgeShadow setShadowBlurRadius:imgSize.width * 0.008f];
-//          [badgeShadow setShadowColor:[NSColor blueColor]];
-          
           NSDictionary *badgeAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
                                            badgeFont, NSFontAttributeName,
                                            badgeColor, NSForegroundColorAttributeName, nil];
-//                                           badgeShadow, NSShadowAttributeName, nil];
           
           NSSize badgeSize = [BADGE sizeWithAttributes:badgeAttributes];
           CGFloat badgeX = (imgSize.width / 2) - (imgSize.width / 3.5);
@@ -112,7 +106,7 @@ void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbn
     // Implement only if supported
 }
 
-// From example...
+// From example...thanks to quicklook-csv
 static CGContextRef createRGBABitmapContext(CGSize pixelSize)
 {
   NSUInteger width = pixelSize.width;

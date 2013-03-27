@@ -1,5 +1,4 @@
 ##Quicklook Generator for Go Source files
-***
 
 Generates the thumbnail and preview passed to the appropriate QuickLook callbacks. The documentation for QuickLook programming on the Mac OS X developer website is pretty straight forward but there are also several online examples that are very helpful. Namely, [quicklook-csv](http://code.google.com/p/quicklook-csv/source/browse/GenerateThumbnailForURL.m). 
 
