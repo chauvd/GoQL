@@ -18,8 +18,8 @@
 		BF90654316FB660F00DB640E /* GoLang.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF90652416FB4E1800DB640E /* GoLang.qlgenerator */; };
 		BF921FE01703AA5B000EB6AF /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90654C16FBA8AF00DB640E /* AppKit.framework */; };
 		BF921FE31703AC8F000EB6AF /* preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE11703AC8F000EB6AF /* preview.jpg */; };
-		BF921FE41703AC8F000EB6AF /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE21703AC8F000EB6AF /* thumbnail.jpg */; };
 		BF921FE61703B2AA000EB6AF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE51703B2AA000EB6AF /* README.md */; };
+		BF921FEA1703B993000EB6AF /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE91703B993000EB6AF /* thumbnail.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -50,8 +50,8 @@
 		BF90654816FBA7F200DB640E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BF90654C16FBA8AF00DB640E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
 		BF921FE11703AC8F000EB6AF /* preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview.jpg; sourceTree = "<group>"; };
-		BF921FE21703AC8F000EB6AF /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
 		BF921FE51703B2AA000EB6AF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
+		BF921FE91703B993000EB6AF /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,9 +114,9 @@
 		BF90653016FB4E1800DB640E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF921FE91703B993000EB6AF /* thumbnail.jpg */,
 				BF921FE51703B2AA000EB6AF /* README.md */,
 				BF921FE11703AC8F000EB6AF /* preview.jpg */,
-				BF921FE21703AC8F000EB6AF /* thumbnail.jpg */,
 				BF90653116FB4E1800DB640E /* GoLang-Info.plist */,
 				BF90653216FB4E1800DB640E /* InfoPlist.strings */,
 				BF90653B16FB4E1800DB640E /* GoLang-Prefix.pch */,
@@ -190,8 +190,8 @@
 			files = (
 				BF90653416FB4E1800DB640E /* InfoPlist.strings in Resources */,
 				BF921FE31703AC8F000EB6AF /* preview.jpg in Resources */,
-				BF921FE41703AC8F000EB6AF /* thumbnail.jpg in Resources */,
 				BF921FE61703B2AA000EB6AF /* README.md in Resources */,
+				BF921FEA1703B993000EB6AF /* thumbnail.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
