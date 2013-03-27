@@ -1,13 +1,16 @@
 #include <CoreFoundation/CoreFoundation.h>
 #include <CoreServices/CoreServices.h>
 #include <QuickLook/QuickLook.h>
-
 #include <Cocoa/Cocoa.h>
-#include <WebKit/WebKit.h>
 
+#define THUMB_WIDTH  600
+#define THUMB_HEIGHT 800
+#define ASPECT       0.5
+#define BADGE        @".go"
 
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize);
 void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbnail);
+static CGContextRef createRGBABitmapContext(CGSize pixelSize);
 
 /* -----------------------------------------------------------------------------
     Generate a thumbnail for file
@@ -18,42 +21,86 @@ void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbn
 OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thumbnail, CFURLRef url, CFStringRef contentTypeUTI, CFDictionaryRef options, CGSize maxSize)
 {
   @autoreleasepool {
-    if (QLThumbnailRequestIsCancelled(thumbnail)) {
-      return noErr;
-    }
+    NSString *data = [NSString stringWithContentsOfURL:(__bridge NSURL *)url encoding:NSUTF8StringEncoding error:nil];
+    CGSize imgSize = CGSizeMake(THUMB_WIDTH, THUMB_HEIGHT);
     
-    NSString *_content = [NSString stringWithContentsOfURL:(__bridge NSURL *)url encoding:NSUTF8StringEncoding error:nil];
+    CGContextRef cgContext = createRGBABitmapContext(imgSize);
     
-    if (_content) {
-      NSString *_html = [NSString stringWithFormat:@"<html><body><pre>%@</pre></body></html>", _content];
-      NSData *_data   = [_html dataUsingEncoding:NSUTF8StringEncoding];
-      
-      NSRect _rect = NSMakeRect(0.0, 0.0, 600.0, 800.0);
-      float _scale = maxSize.height / 800.0;
-      NSSize _scaleSize = NSMakeSize(_scale, _scale);
-      CGSize _thumbSize = NSSizeToCGSize((CGSize) { maxSize.width * (600.0/800.0), maxSize.height});
-      
-      WebView *_webView = [[WebView alloc] initWithFrame:_rect];
-      [_webView scaleUnitSquareToSize:_scaleSize];
-      [[[_webView mainFrame] frameView] setAllowsScrolling:NO];
-      [[_webView mainFrame] loadData:_data MIMEType:@"text/html" textEncodingName:@"UTF-8" baseURL:nil];
-      
-      while([_webView isLoading]) {
-        CFRunLoopRunInMode(kCFRunLoopDefaultMode, 0, true);
-      }
-      
-      [_webView display];
-      
-      CGContextRef _context = QLThumbnailRequestCreateContext(thumbnail, _thumbSize, false, NULL);
-      if (_context) {
-        NSGraphicsContext* _graphicsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:(void *)_context flipped:_webView.isFlipped];
-        [_webView displayRectIgnoringOpacity:_webView.bounds inContext:_graphicsContext];
-        QLThumbnailRequestFlushContext(thumbnail, _context);
-        CFRelease(_context);
+    if (!QLThumbnailRequestIsCancelled(thumbnail)) {
+      if (cgContext) {
+        CGContextScaleCTM(cgContext, 1.f, -1.f);
+        CGContextTranslateCTM(cgContext, 0, -imgSize.height);
+        
+        CGRect imgRect = CGRectMake(0, 0, imgSize.width, imgSize.height);
+        
+        NSGraphicsContext *nsContext;
+        nsContext = [NSGraphicsContext graphicsContextWithGraphicsPort:(void *)cgContext flipped:YES];
+        
+        if (nsContext) {
+          [NSGraphicsContext saveGraphicsState];
+          [NSGraphicsContext setCurrentContext:nsContext];
+          
+          NSRect text = NSRectFromCGRect(imgRect);
+          
+          NSFont *textFont = [NSFont systemFontOfSize:8.f];
+          NSColor *textColor = [NSColor blackColor];
+          NSDictionary *textAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                          textFont, NSFontAttributeName,
+                                          textColor, NSForegroundColorAttributeName, nil];
+          
+          [data drawInRect:text withAttributes:textAttributes];
+        }
+        else {
+          NSLog(@"Could not initialize ncContext!");
+        }
+        
+        CGImageRef fullIcon = CGBitmapContextCreateImage(cgContext);
+        CGImageRef usedIcon = CGImageCreateWithImageInRect(fullIcon, imgRect);
+        CGImageRelease(fullIcon);
+        
+        CGContextRef thumbCGContext = QLThumbnailRequestCreateContext(thumbnail, imgSize, false, nil);
+        CGContextDrawImage(thumbCGContext, imgRect, usedIcon);
+        CGImageRelease(usedIcon);
+        
+        NSGraphicsContext *thumbNSContext = [NSGraphicsContext graphicsContextWithGraphicsPort:(void *)thumbCGContext flipped:NO];
+        
+        if (thumbNSContext) {
+          [NSGraphicsContext saveGraphicsState];
+          [NSGraphicsContext setCurrentContext:thumbNSContext];
+          CGFloat badgeFontSize = ceilf(imgSize.width * 0.38f);
+          NSFont *badgeFont = [NSFont boldSystemFontOfSize:badgeFontSize];
+          NSColor *badgeColor = [NSColor colorWithCalibratedRed:0/255.f green:0/255.f blue:255/255.f alpha:0.8f];
+          
+//          NSShadow *badgeShadow = [[NSShadow alloc] init];
+//          [badgeShadow setShadowOffset:NSMakeSize(0.f, 0.f)];
+//          [badgeShadow setShadowBlurRadius:imgSize.width * 0.008f];
+//          [badgeShadow setShadowColor:[NSColor blueColor]];
+          
+          NSDictionary *badgeAttributes = [NSDictionary dictionaryWithObjectsAndKeys:
+                                           badgeFont, NSFontAttributeName,
+                                           badgeColor, NSForegroundColorAttributeName, nil];
+//                                           badgeShadow, NSShadowAttributeName, nil];
+          
+          NSSize badgeSize = [BADGE sizeWithAttributes:badgeAttributes];
+          CGFloat badgeX = (imgSize.width / 2) - (imgSize.width / 3.5);
+          CGFloat badgeY = (imgSize.height * 0.030f);
+          
+          NSRect badgeRect = NSMakeRect(badgeX, badgeY, 0.f, 0.f);
+          badgeRect.size = badgeSize;
+          
+          [BADGE drawWithRect:badgeRect options:NSStringDrawingUsesLineFragmentOrigin attributes:badgeAttributes];
+        }
+        else {
+          NSLog(@"Could not initialize thumbCGContext!");
+        }
+        
+        QLThumbnailRequestFlushContext(thumbnail, thumbCGContext);
+        CGContextRelease(thumbCGContext);
+        CGContextRelease(cgContext);
       }
     }
     else {
-      NSLog(@"Could not get source from CFURLref");
+      NSLog(@"Could not create snapshot of file form path");
     }
   }
   
@@ -63,4 +110,34 @@ OSStatus GenerateThumbnailForURL(void *thisInterface, QLThumbnailRequestRef thum
 void CancelThumbnailGeneration(void *thisInterface, QLThumbnailRequestRef thumbnail)
 {
     // Implement only if supported
+}
+
+// From example...
+static CGContextRef createRGBABitmapContext(CGSize pixelSize)
+{
+  NSUInteger width = pixelSize.width;
+  NSUInteger height = pixelSize.height;
+  NSUInteger bitmapBytesPerRow = width * 4;                               
+  NSUInteger bitmapBytes = bitmapBytesPerRow * height;
+  
+  // allocate needed bytes
+  void *bitmapData = malloc(bitmapBytes);
+  if (NULL == bitmapData) {
+    fprintf(stderr, "Oops, could not allocate bitmap data!");
+    return NULL;
+  }
+  
+  // create the context
+  CGColorSpaceRef colorSpace = CGColorSpaceCreateWithName(kCGColorSpaceGenericRGB);
+  CGContextRef context = CGBitmapContextCreate(bitmapData, width, height, 8, bitmapBytesPerRow, colorSpace, kCGImageAlphaPremultipliedLast);
+  CGColorSpaceRelease(colorSpace);
+  
+  // context creation fail
+  if (NULL == context) {
+    free(bitmapData);
+    fprintf(stderr, "Oops, could not create the context!");
+    return NULL;
+  }
+  
+  return context;
 }

@@ -7,13 +7,17 @@
 	<key>CFBundleDocumentTypes</key>
 	<array>
 		<dict>
+			<key>CFBundleTypeExtensions</key>
+			<array>
+				<string>go</string>
+			</array>
+			<key>CFBundleTypeName</key>
+			<string>Go</string>
 			<key>CFBundleTypeRole</key>
 			<string>QLGenerator</string>
 			<key>LSItemContentTypes</key>
 			<array>
 				<string>dyn.ah62d4rv4ge80s52</string>
-				<string>public.data</string>
-				<string>public.item</string>
 			</array>
 		</dict>
 	</array>
@@ -61,5 +65,23 @@
 	<false/>
 	<key>QLThumbnailMinimumSize</key>
 	<real>17</real>
+	<key>UTImportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeDescription</key>
+			<string>Go Source</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+			</array>
+			<key>UTTypeIdentifier</key>
+			<string>go</string>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<string>go</string>
+			</dict>
+		</dict>
+	</array>
 </dict>
 </plist>

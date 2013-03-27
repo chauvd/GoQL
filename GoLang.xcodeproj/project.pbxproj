@@ -16,9 +16,10 @@
 		BF90653816FB4E1800DB640E /* GeneratePreviewForURL.m in Sources */ = {isa = PBXBuildFile; fileRef = BF90653716FB4E1800DB640E /* GeneratePreviewForURL.m */; };
 		BF90653A16FB4E1800DB640E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = BF90653916FB4E1800DB640E /* main.c */; };
 		BF90654316FB660F00DB640E /* GoLang.qlgenerator in CopyFiles */ = {isa = PBXBuildFile; fileRef = BF90652416FB4E1800DB640E /* GoLang.qlgenerator */; };
-		BF90654516FB808F00DB640E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = BF90654416FB808F00DB640E /* Info.plist */; };
-		BF90654916FBA7F200DB640E /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90654816FBA7F200DB640E /* WebKit.framework */; };
-		BF90654D16FBA8AF00DB640E /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90654C16FBA8AF00DB640E /* AppKit.framework */; };
+		BF921FE01703AA5B000EB6AF /* AppKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF90654C16FBA8AF00DB640E /* AppKit.framework */; };
+		BF921FE31703AC8F000EB6AF /* preview.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE11703AC8F000EB6AF /* preview.jpg */; };
+		BF921FE41703AC8F000EB6AF /* thumbnail.jpg in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE21703AC8F000EB6AF /* thumbnail.jpg */; };
+		BF921FE61703B2AA000EB6AF /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BF921FE51703B2AA000EB6AF /* README.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -46,9 +47,11 @@
 		BF90653716FB4E1800DB640E /* GeneratePreviewForURL.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GeneratePreviewForURL.m; sourceTree = "<group>"; };
 		BF90653916FB4E1800DB640E /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		BF90653B16FB4E1800DB640E /* GoLang-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GoLang-Prefix.pch"; sourceTree = "<group>"; };
-		BF90654416FB808F00DB640E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF90654816FBA7F200DB640E /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		BF90654C16FBA8AF00DB640E /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		BF921FE11703AC8F000EB6AF /* preview.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = preview.jpg; sourceTree = "<group>"; };
+		BF921FE21703AC8F000EB6AF /* thumbnail.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = thumbnail.jpg; sourceTree = "<group>"; };
+		BF921FE51703B2AA000EB6AF /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,8 +59,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BF90654D16FBA8AF00DB640E /* AppKit.framework in Frameworks */,
-				BF90654916FBA7F200DB640E /* WebKit.framework in Frameworks */,
+				BF921FE01703AA5B000EB6AF /* AppKit.framework in Frameworks */,
 				BF90652816FB4E1800DB640E /* QuickLook.framework in Frameworks */,
 				BF90652A16FB4E1800DB640E /* ApplicationServices.framework in Frameworks */,
 				BF90652C16FB4E1800DB640E /* CoreServices.framework in Frameworks */,
@@ -112,8 +114,10 @@
 		BF90653016FB4E1800DB640E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				BF921FE51703B2AA000EB6AF /* README.md */,
+				BF921FE11703AC8F000EB6AF /* preview.jpg */,
+				BF921FE21703AC8F000EB6AF /* thumbnail.jpg */,
 				BF90653116FB4E1800DB640E /* GoLang-Info.plist */,
-				BF90654416FB808F00DB640E /* Info.plist */,
 				BF90653216FB4E1800DB640E /* InfoPlist.strings */,
 				BF90653B16FB4E1800DB640E /* GoLang-Prefix.pch */,
 			);
@@ -185,7 +189,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				BF90653416FB4E1800DB640E /* InfoPlist.strings in Resources */,
-				BF90654516FB808F00DB640E /* Info.plist in Resources */,
+				BF921FE31703AC8F000EB6AF /* preview.jpg in Resources */,
+				BF921FE41703AC8F000EB6AF /* thumbnail.jpg in Resources */,
+				BF921FE61703B2AA000EB6AF /* README.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,6 +336,7 @@
 				BF90654016FB4E1800DB640E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
