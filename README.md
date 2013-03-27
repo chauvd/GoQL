@@ -7,7 +7,7 @@ The last thing I plan on implementing is some __minor__ syntax highlighting. Thi
 
 ###Install
 
-		cp GoLang.qlgenerator ~/Library/QuickLook/
+Copy the __GoLang.qlgenerator__ into `~/Library/QuickLook` after building the project.
 		
 ###Uninstall
 
