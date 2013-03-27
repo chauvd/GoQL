@@ -13,6 +13,18 @@ Copy the __GoLang.qlgenerator__ into `~/Library/QuickLook` after building the pr
 
 		rm -rf ~/Library/QuickLook/GoLang.qlgenerator
 
+###Troubleshooting
+
+If there is a problem updating generated QuickLook information try:
+
+	qlmanage -r 
+	
+		or
+	
+	qlmanage -r cache
+
+and restart your machine.
+
 ###Snapshot
 
 ![image](https://raw.github.com/chauvd/GoLang/master/GoLang/thumbnail.jpg)
