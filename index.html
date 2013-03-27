@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="GoQL : Mac Os X QuickLook plugin for Go source files." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>GoQL</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/chauvd/GoLang">View on GitHub</a>
+
+          <h1 id="project_title">GoQL</h1>
+          <h2 id="project_tagline">Mac Os X QuickLook plugin for Go source files.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/chauvd/GoLang/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/chauvd/GoLang/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>Quicklook Generator for Go Source files</h2>
+
+<p>Generates the thumbnail and preview passed to the appropriate QuickLook callbacks. The documentation for QuickLook programming on the Mac OS X developer website is pretty straight forward but there are also several online examples that are very helpful. Namely, <a href="http://code.google.com/p/quicklook-csv/source/browse/GenerateThumbnailForURL.m">quicklook-csv</a>. </p>
+
+<p>The last thing I plan on implementing is some <strong>minor</strong> syntax highlighting. This feature was not implemented initially because I wanted to keep the preview panes consistent accross source files. Stock QuickLook does not syntax highlight for other source files. This makes sense since the point is to capture the quickest possible file representation without bogging the preview generator down on large file processing.</p>
+
+<h3>Install</h3>
+
+<p>Copy the <strong>GoLang.qlgenerator</strong> into <code>~/Library/QuickLook</code> after building the project.</p>
+
+<h3>Uninstall</h3>
+
+<pre><code>    rm -rf ~/Library/QuickLook/GoLang.qlgenerator
+</code></pre>
+
+<h3>Snapshot</h3>
+
+<p><img src="https://raw.github.com/chauvd/GoLang/master/GoLang/thumbnail.jpg" alt="image"></p>
+
+<p>Thumbnail</p>
+
+<p><img src="https://raw.github.com/chauvd/GoLang/master/GoLang/preview.jpg" alt="image"></p>
+
+<p>Preview</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">GoQL maintained by <a href="https://github.com/chauvd">chauvd</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
