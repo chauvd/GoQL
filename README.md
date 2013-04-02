@@ -27,10 +27,10 @@ and restart your machine.
 
 ###Snapshot
 
-![image](https://raw.github.com/chauvd/GoLang/master/GoLang/thumbnail.jpg)
+![image](https://raw.github.com/chauvd/GoQL/master/GoLang/thumbnail.jpg)
 
 Thumbnail
 
-![image](https://raw.github.com/chauvd/GoLang/master/GoLang/preview.jpg)
+![image](https://raw.github.com/chauvd/GoQL/master/GoLang/preview.jpg)
 
 Preview
